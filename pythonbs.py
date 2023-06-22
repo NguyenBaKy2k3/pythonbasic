@@ -242,7 +242,6 @@ for i in range(a, b):
         coutodd += 1
 print("Even: " + str(couteven))
 print("Odd: " + str(coutodd))
-"""
 
 # 36
 n = int(input())
@@ -250,3 +249,137 @@ sum = 0
 for i in range(1, n+1):
     sum += i/(i+1)
 print(round(sum, 2))
+
+# String
+s = str(input("Nhập chuỗi: "))
+# Chữ hoa
+print(s.upper())
+# Chữ thường
+print(s.lower())
+# Kiểm tra string có kí tự chữ và số hay k. Có trả True >< False
+print(s.isalnum())
+# Kiểm tra string có chứa toàn các ký tự chữ không
+print(s.isalpha())
+# Kiểm tra string có chứa toàn các ký tự số không
+print(s.isnumeric())
+# Nối 
+print("?".join(s))
+# Loại bỏ các khoảng trắng thừa trong chuỗi
+print(" ".join(s.split()))
+# Thay thế các chuỗi tìm thấy thành chuỗi mới
+print(s.replace("Kỳ", "Phước"))
+
+# 43
+s = input("Nhập chuỗi: ")
+if (len(s)<2):
+    print("")
+else:
+    print(s[0:2]+s[-2:])
+
+# 44
+s1 = input("Nhập chuỗi S1: ")
+s2 = input("Nhập chuỗi S2: ")
+x = s1[0:2] + s2[2:]
+s1 = s2[0:2] + s1[2:]
+s2 = x
+print(s1 + " " + s2)
+
+# 45
+s = input("Nhập chuỗi: ").split()
+print(" ".join(reversed(s)))
+
+# 37, 38 , 39, 40
+lst = []
+sum = 0
+n = int(input("Số phần tử: "))
+for i in range(n):
+    lst.append(int(input("lst["+str(i)+"]= ")))
+    sum += lst[i]
+print(min(lst))
+print("Tổng các phần tử trong list:", sum)
+lst.sort()
+print(lst)
+le = []
+for i in lst:
+    if (i % 2 != 0):
+        le.append(i)
+print(le)
+l = []
+for i in lst:
+    if (i % 5 == 0):
+        l.append(i)
+if(len(l) == 0):
+    l = [0]
+print(l)
+
+
+# 46
+n = int(input("Số phần tử trong mảng: "))
+l = []
+def sum(l):
+    s = 0 
+    for i in l:
+        s += i
+    return s 
+
+for i in range(n):
+    l.append(int(input("l[" + str(i) + "]= ")))
+print(sum(l))
+
+
+# 47 
+a, b, c = map(int, input("Nhập: ").split())
+def maxx(a,b,c):
+    if a>b and a>c:
+        return a
+    if b>c:
+        return b
+    else:
+        return c
+    
+print(maxx(a,b,c))
+
+
+# 48
+s = str(input("Chuỗi s: ")) 
+def c(s):
+    countupper = 0
+    countlower = 0
+    for i in s:
+        if i.isupper():
+            countupper += 1
+        if i.islower():
+            countlower += 1
+    print("Chuỗi S: ", s)
+    print("Số chữ cái in hoa: ", countupper)
+    print("Số chữ cái in thường", countlower)
+print(c(s))
+
+# 49
+n = int(input("Số phần tử trong mảng: "))
+l = []
+def c(l):
+    a = []
+    for i in l:
+        if i not in a:
+            a.append(i)
+    print(a)
+for i in range(n):
+    l.append(int(input("l[" + str(i) + "]= ")))
+
+print(c(l))
+
+
+# 50 
+n = int(input("Nhập số: "))
+def ktr(n):
+    count = 0
+    for i in range(1, n+1):
+        if(n % i == 0 ):
+            count += 1
+    if count == 2:
+        print("n là số nguyên tố.")
+    else:
+        print("n không là số nguyên tố.")
+print(ktr(n))
+"""
