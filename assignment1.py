@@ -10,7 +10,7 @@ print("Tọa độ của C: ")
 c1 = int(input())
 c2 = int(input())
 
-def c1():
+def cau1():
     if((b1 - a1)/(c1 - a1) != (b2 - a2)/(c2 - a2)):
         print("Tọa độ của 3 đỉnh tạo thành 1 tam giác")
     if((b1 - a1)/(c1 - a1) == (b2 - a2)/(c2 - a2)):
@@ -66,9 +66,12 @@ def _():
         print("Đường cao hạ từ C", Hc)
 
         # Câu 6
-        TTab = math.sqrt((math.pow(AC, 2) + math.pow(BC, 2))/2 - math.pow(AB, 2)/4)
-        TTac = math.sqrt((math.pow(AB, 2) + math.pow(BC, 2))/2 - math.pow(AC, 2)/4)
-        TTbc = math.sqrt((math.pow(AC, 2) + math.pow(AB, 2))/2 - math.pow(BC, 2)/4)
+        TTab = math.sqrt(((math.pow(AC, 2) + math.pow(BC, 2))/2) - (math.pow(AB, 2)/4))
+        TTac = math.sqrt(((math.pow(AB, 2) + math.pow(BC, 2))/2) - (math.pow(AC, 2)/4))
+        TTbc = math.sqrt(((math.pow(AC, 2) + math.pow(AB, 2))/2) - (math.pow(BC, 2)/4))
+        print("Trung tuyến của AB: ", TTab)
+        print("Trung tuyến của AC: ", TTac)
+        print("Trung tuyến của BC: ", TTbc)
 
         # Câu 7 
             # Trọng tâm 
@@ -77,4 +80,5 @@ def _():
         print("Trọng tâm G của tam giác có tọa độ: G(" + str(xg) + "," + str(yg))
             # Trực tâm 
 
+print(cau1())
 print(_())
