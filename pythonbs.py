@@ -382,4 +382,49 @@ def ktr(n):
     else:
         print("n không là số nguyên tố.")
 print(ktr(n))
+
+# 51
+l = []
+n = int(input("Số phần tử mảng: "))
+for i in range (n):
+    l.append(int(input("Nhập: ")))
+def ktra(l):
+    for i in l:
+        if (i%2 == 0):
+            print(i)
+print(ktra(l))
+
+# 52
+import math
+a,b = map(int,input("Nhập a,b: ").split())
+def power(a, b):
+    c = math.pow(a, b)
+    print(c)
+print(power(a, b))
+
+# 53
+a,b = map(int,input("Nhập a,b: ").split())
+def uscln(a, b):
+    if (b == 0):
+        return a
+    return uscln(b, a % b)
+print(uscln(a, b))
+
+# 55
+s = str(input("Chuỗi: "))
+s1 = s.split()
+def ktr(s1):
+    for i in s1:
+        if len(i) > 3:
+            print(i)
+print(ktr(s1))
 """
+
+# 56
+res = []
+n = int(input("Số phần tử: "))
+for i in range(n):
+    res.append(int(input(": ")))
+print(type(res))
+new_lst = [[int(x) for x in sub] for sub in res]
+print(type(new_lst))
