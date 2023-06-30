@@ -15,7 +15,6 @@ for i in n:
     if i not in a:
         a.add(i)
 print(len(a))
-"""
 
 # 8.3
 n = map(int, input().split())
@@ -25,5 +24,7 @@ for i in x:
     if i in a:
         a.remove(i)
 print(sum(a))
+"""
+
 
 

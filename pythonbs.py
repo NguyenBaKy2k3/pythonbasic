@@ -420,11 +420,5 @@ def ktr(s1):
 print(ktr(s1))
 """
 
-# 56
-res = []
-n = int(input("Số phần tử: "))
-for i in range(n):
-    res.append(int(input(": ")))
-print(type(res))
-new_lst = [[int(x) for x in sub] for sub in res]
-print(type(new_lst))
+f = open("diem_chitiet.txt", "r")
+print(f.read())
