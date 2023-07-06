@@ -1,42 +1,36 @@
-class NhanVien:
-    def __init__(x, ten, thang, luongcb, snlv, hsl):
-        x.ten = ten
-        x.thang = thang
-        x.luongcb = luongcb
-        x.snlv = snlv 
-        x.hsl = hsl
+class employee:
+    def __init__(self, name, mounth, bs_salary, nb_work_day, coefficients_salary):
+        self.name = name
+        self.mounth = mounth
+        self.bs_salary = bs_salary
+        self.nb_work_day = nb_work_day 
+        self.coefficients_salary = coefficients_salary
     
-    def tinh_luong(x):
-        luong_tong = x.luongcb * x.snlv * x.hsl - 1000000
-        if(luong_tong > 9000000):
-            luong_tong = 0.9 * luong_tong
-            return luong_tong
+    def calculate_salary(self):
+        salary_sum = self.bs_salary * self.nb_work_day * self.coefficients_salary - 1000000
+        if(salary_sum > 9000000):
+            salary_sum = 0.9 * salary_sum
+            return salary_sum
         else:
-            return luong_tong
+            return salary_sum
         
-    def hien_thi_luong(x):
-        print("Lương của nhân viên {} nhận được trong tháng {} là: ".format(x.ten, x.thang) + str(x.tinh_luong()) + " VND")
-"""
-ten = str(input("Tên nhân viên: "))
-thongtin = list(map(float, input("Thông tin: ").split()))
-NhanVien(ten, thongtin[0], thongtin[1], thongtin[2], thongtin[3]).hien_thi_luong()
-"""
+    def out(self):
+        print("Salary of employee {} received in the month {} là: ".format(self.name, self.mounth) + str(self.calculate_salary()) + " VND")
 
-class QuanLy(NhanVien):
-    def __init__(x, ten, thang, luongcb, snlv, hsl, hshieuqua):
-        super().__init__(ten, thang, luongcb, snlv, hsl)
-        x.hshieuqua = hshieuqua
+class managers(employee):
+    def __init__(self, name, mounth, bs_salary, nb_work_day, coefficients_salary, efficiency_coefficient):
+        super().__init__(name, mounth, bs_salary, nb_work_day, coefficients_salary)
+        self.efficiency_coefficient = efficiency_coefficient
     
-    def tinh_luong_thuong(x):
-        if(x.hshieuqua < 1):
-            return (x.tinh_luong() * x.hshieuqua)
+    def calculate_salary_bonus(self):
+        if(self.efficiency_coefficient < 1):
+            return (self.calculate_salary() * self.efficiency_coefficient)
         else:
-            return (x.tinh_luong() + ((x.luongcb * x.snlv * x.hsl - 1000000) * (x.hshieuqua - 1) * 0.85))
+            return (self.calculate_salary() + ((self.bs_salary * self.nb_work_day * self.coefficients_salary - 1000000) * (self.efficiency_coefficient - 1) * 0.85))
     
-    def hien_luong(x):
-        print("Lương của nhân viên {} nhận được trong tháng {} là: ".format(x.ten, x.thang) + str(x.tinh_luong_thuong()) + " VND")
+    def out(self):
+        print("Salary of employee {} received in the month {} là: ".format(self.name, self.mounth) + str(self.calculate_salary_bonus()) + " VND")
 
-
-ten = str(input("Tên quản lý: ")).strip()
-thongtin = list(map(float, input("Thông tin: ").split()))
-QuanLy(ten, thongtin[0], thongtin[1], thongtin[2], thongtin[3], thongtin[4]).hien_luong()
+name = str(input("Manager name: ")).strip()
+inf = list(map(float, input("Information: ").split()))
+managers(name, inf[0], inf[1], inf[2], inf[3], inf[4]).out()

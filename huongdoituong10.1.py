@@ -1,11 +1,11 @@
-class Student():
-    def __init__(x, name, avg):
-        x.name = name
-        x.avg = avg
-    
-    def print_diemtk(x):
-        print("Điểm tổng kết của {} :".format(x.name)+str(sum(x.avg)/len(avg)))
+class Student:
+    def __init__(self, name, avgsubject):
+        self.name = name
+        self.avgsubject = avgsubject
+
+    def overall(self):
+        print("Total average score of {} :".format(self.name)+str(sum(self.avgsubject)/len(self.avgsubject)))
 
 name = str(input("Student name: "))
-avg = list(map(float, input("Điểm trung bình môn: ").split()))
-Student(name, avg).print_diemtk()
+avgsubject = list(map(float, input("Average of subject: ").split()))
+Student(name, avgsubject).overall()

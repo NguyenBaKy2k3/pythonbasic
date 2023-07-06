@@ -10,75 +10,111 @@ print("Tọa độ của C: ")
 c1 = int(input())
 c2 = int(input())
 
-def cau1():
-    if((b1 - a1)/(c1 - a1) != (b2 - a2)/(c2 - a2)):
-        print("Tọa độ của 3 đỉnh tạo thành 1 tam giác")
-    if((b1 - a1)/(c1 - a1) == (b2 - a2)/(c2 - a2)):
-        print("Tọa độ của 3 đỉnh không tạo thành 1 tam giác")
+class assignment:
+    def __init__(self, a1, a2, b1, b2, c1, c2):
+        self.a1 = a1
+        self.a2 = a2
+        self.b1 = b1
+        self.b2 = b2
+        self.c1 = c1
+        self.c2 = c2
+    
+    # Xét điều kiện
+    def question_one(self):
+        if((self.b1 - self.a1)/(self.c1 - self.a1) != (self.b2 - self.a2)/(self.c2 - self.a2)):
+            print("Coordinates of 3 vertices forming a triangle")
+        if((self.b1 -self.a1)/(self.c1 - self.a1) == (self.b2 - self.a2)/(self.c2 - self.a2)):
+            print("The coordinates of the 3 vertices do not form a triangle")
 
-def _():
-    if((b1 - a1)/(c1 - a1) != (b2 - a2)/(c2 - a2)):
-        # Câu 2
-        AB = math.sqrt(math.pow((b1 - a1), 2) + math.pow((b2 - a2), 2))
-        BC = math.sqrt(math.pow((c1 - b2), 2) + math.pow((c2 - b2), 2))
-        AC = math.sqrt(math.pow((c1 - a1), 2) + math.pow((c2 - a2), 2))
-        print("Độ dài AB:", AB)
-        print("Độ dài BC:", BC)
-        print("Độ dài AC:", AC)
-        ABC = math.degrees(math.acos(((a1 - b1)*(c1 - b1) + (a2 - b2)*(c2 - b2))/(math.sqrt(math.pow((a1 - b1), 2) + math.pow((a2 - b2), 2)) * math.sqrt(math.pow((c1 - b1), 2) + math.pow((c2 - b2), 2)))))
-        ACB = math.degrees(math.acos(((a1 - c1)*(b1 - c1) + (a2 - c2)*(b2 - c2))/(math.sqrt(math.pow((a1 - c1), 2) + math.pow((a2 - c2), 2)) * math.sqrt(math.pow((b1 - c1), 2) + math.pow((b2 - c2), 2)))))
-        BAC = math.degrees(math.acos(((b1 - a1)*(c1 - a1) + (b2 - a2)*(c2 - a2))/(math.sqrt(math.pow((b1 - a1), 2) + math.pow((b2 - a2), 2)) * math.sqrt(math.pow((c1 - a1), 2) + math.pow((c2 - a2), 2)))))
-        print("Góc ABC: ", ABC)
-        print("Góc ACB: ", ACB)
-        print("Góc BAC: ", BAC)
+    # Độ dài, góc
+    def question_two(self):
+        if((self.b1 - self.a1)/(self.c1 - self.a1) != (self.b2 - self.a2)/(self.c2 - self.a2)):
+            AB = math.sqrt(math.pow((self.b1 - self.a1), 2) + math.pow((self.b2 - self.a2), 2))
+            BC = math.sqrt(math.pow((self.c1 - self.b2), 2) + math.pow((self.c2 - self.b2), 2))
+            AC = math.sqrt(math.pow((self.c1 - self.a1), 2) + math.pow((self.c2 - self.a2), 2))
+            print("Length AB:", AB)
+            print("Length BC:", BC)
+            print("Length AC:", AC)
+            ABC = math.degrees(math.acos(((self.a1 - self.b1)*(self.c1 - self.b1) + (self.a2 - self.b2)*(self.c2 - self.b2))/(math.sqrt(math.pow((self.a1 - self.b1), 2) + math.pow((self.a2 - self.b2), 2)) * math.sqrt(math.pow((self.c1 - self.b1), 2) + math.pow((self.c2 - self.b2), 2)))))
+            ACB = math.degrees(math.acos(((self.a1 - self.c1)*(self.b1 - self.c1) + (self.a2 - self.c2)*(self.b2 - self.c2))/(math.sqrt(math.pow((self.a1 - self.c1), 2) + math.pow((self.a2 - self.c2), 2)) * math.sqrt(math.pow((self.b1 - self.c1), 2) + math.pow((self.b2 - self.c2), 2)))))
+            BAC = math.degrees(math.acos(((self.b1 - self.a1)*(self.c1 - self.a1) + (self.b2 - self.a2)*(self.c2 - self.a2))/(math.sqrt(math.pow((self.b1 - self.a1), 2) + math.pow((self.b2 - self.a2), 2)) * math.sqrt(math.pow((self.c1 - self.a1), 2) + math.pow((self.c2 - self.a2), 2)))))
+            print("Angle ABC: ", ABC)
+            print("Angle ACB: ", ACB)
+            print("Angle BAC: ", BAC)
 
-        # Câu 3
-        if(AB == BC):
-            print("Tam giác cân tại B")
-            if(ABC == 90 or ACB == 45 or BAC == 45):
-                print("và vuông tại B")
-        elif(AB == AC):
-            print("Tam giác cân tại A")
-            if(BAC == 90 or ACB == 45 or ABC == 45):
-                print("và vuông tại A")
-        elif(AC == BC):
-            print("Tam giác cân tại C")
-            if(ACB == 90 or ABC == 45 or BAC == 45):
-                print("và vuông tại C")
-        elif(AC == AB and AC == BC):
-            print("Tam giác đều")
-        elif(ABC == 90 or ACB == 90 or BAC == 90):
-            print("Tam giác vuông")
-        else:
-            print("Tam giác thường")
+    # Xét tam giác
+    def question_three(self):
+        if((self.b1 - self.a1)/(self.c1 - self.a1) != (self.b2 - self.a2)/(self.c2 - self.a2)):
+            AB = math.sqrt(math.pow((self.b1 - self.a1), 2) + math.pow((self.b2 - self.a2), 2))
+            BC = math.sqrt(math.pow((self.c1 - self.b2), 2) + math.pow((self.c2 - self.b2), 2))
+            AC = math.sqrt(math.pow((self.c1 - self.a1), 2) + math.pow((self.c2 - self.a2), 2))
+            ABC = math.degrees(math.acos(((self.a1 - self.b1)*(self.c1 - self.b1) + (self.a2 - self.b2)*(self.c2 - self.b2))/(math.sqrt(math.pow((self.a1 - self.b1), 2) + math.pow((self.a2 - self.b2), 2)) * math.sqrt(math.pow((self.c1 - self.b1), 2) + math.pow((self.c2 - self.b2), 2)))))
+            ACB = math.degrees(math.acos(((self.a1 - self.c1)*(self.b1 - self.c1) + (self.a2 - self.c2)*(self.b2 - self.c2))/(math.sqrt(math.pow((self.a1 - self.c1), 2) + math.pow((self.a2 - self.c2), 2)) * math.sqrt(math.pow((self.b1 - self.c1), 2) + math.pow((self.b2 - self.c2), 2)))))
+            BAC = math.degrees(math.acos(((self.b1 - self.a1)*(self.c1 - self.a1) + (self.b2 - self.a2)*(self.c2 - self.a2))/(math.sqrt(math.pow((self.b1 - self.a1), 2) + math.pow((self.b2 - self.a2), 2)) * math.sqrt(math.pow((self.c1 - self.a1), 2) + math.pow((self.c2 - self.a2), 2)))))
+            if(AB == BC):
+                print("Isosceles triangle at B")
+                if(ABC == 90 or ACB == 45 or BAC == 45):
+                    print("and square at B")
+            elif(AB == AC):
+                print("Isosceles triangle at A")
+                if(BAC == 90 or ACB == 45 or ABC == 45):
+                    print("and square at A")
+            elif(AC == BC):
+                print("Isosceles triangle at C")
+                if(ACB == 90 or ABC == 45 or BAC == 45):
+                    print("and square at C")
+            elif(AC == AB and AC == BC):
+                print("Equilateral triangle")
+            elif(ABC == 90 or ACB == 90 or BAC == 90):
+                print("Right triangle")
+            else:
+                print("Normal triangle")
 
-        # Câu 4
-        x = (AC + AC + BC)/2
-        s = math.sqrt(x * (x - AC) * (x - AC) * (x - BC))
-        print("Diện tích tam giác:", s)
+    # Diện tích
+    def question_four(self):
+        if((self.b1 - self.a1)/(self.c1 - self.a1) != (self.b2 - self.a2)/(self.c2 - self.a2)):
+            AB = math.sqrt(math.pow((self.b1 - self.a1), 2) + math.pow((self.b2 - self.a2), 2))
+            BC = math.sqrt(math.pow((self.c1 - self.b2), 2) + math.pow((self.c2 - self.b2), 2))
+            AC = math.sqrt(math.pow((self.c1 - self.a1), 2) + math.pow((self.c2 - self.a2), 2))
+            x = (AB + AC + BC)/2
+            s = math.sqrt(x * (x - AB) * (x - AC) * (x - BC))
+            print("Triangle area:", s)
 
-        # Câu 5
-        Ha = 2*s/BC
-        Hb = 2*s/AC
-        Hc = 2*s/AB
-        print("Đường cao hạ từ A", Ha)
-        print("Đường cao hạ từ B", Hb)
-        print("Đường cao hạ từ C", Hc)
+    # Đường cao
+    def question_five(self):
+        if((self.b1 - self.a1)/(self.c1 - self.a1) != (self.b2 - self.a2)/(self.c2 - self.a2)):
+            AB = math.sqrt(math.pow((self.b1 - self.a1), 2) + math.pow((self.b2 - self.a2), 2))
+            BC = math.sqrt(math.pow((self.c1 - self.b2), 2) + math.pow((self.c2 - self.b2), 2))
+            AC = math.sqrt(math.pow((self.c1 - self.a1), 2) + math.pow((self.c2 - self.a2), 2))
+            x = (AB + AC + BC)/2
+            s = math.sqrt(x * (x - AB) * (x - AC) * (x - BC))
+            Ha = 2*s/BC
+            Hb = 2*s/AC
+            Hc = 2*s/AB
+            print("Altitude from A", Ha)
+            print("Altitude from B", Hb)
+            print("Altitude from C", Hc)
 
-        # Câu 6
-        TTab = math.sqrt(((math.pow(AC, 2) + math.pow(BC, 2))/2) - (math.pow(AB, 2)/4))
-        TTac = math.sqrt(((math.pow(AB, 2) + math.pow(BC, 2))/2) - (math.pow(AC, 2)/4))
-        TTbc = math.sqrt(((math.pow(AC, 2) + math.pow(AB, 2))/2) - (math.pow(BC, 2)/4))
-        print("Trung tuyến của AB: ", TTab)
-        print("Trung tuyến của AC: ", TTac)
-        print("Trung tuyến của BC: ", TTbc)
+    # Trung tuyến
+    def question_six(self):
+        if((self.b1 - self.a1)/(self.c1 - self.a1) != (self.b2 - self.a2)/(self.c2 - self.a2)):
+            AB = math.sqrt(math.pow((self.b1 - self.a1), 2) + math.pow((self.b2 - self.a2), 2))
+            BC = math.sqrt(math.pow((self.c1 - self.b2), 2) + math.pow((self.c2 - self.b2), 2))
+            AC = math.sqrt(math.pow((self.c1 - self.a1), 2) + math.pow((self.c2 - self.a2), 2))
+            TTab = math.sqrt(((math.pow(AC, 2) + math.pow(BC, 2))/2) - (math.pow(AB, 2)/4))
+            TTac = math.sqrt(((math.pow(AB, 2) + math.pow(BC, 2))/2) - (math.pow(AC, 2)/4))
+            TTbc = math.sqrt(((math.pow(AC, 2) + math.pow(AB, 2))/2) - (math.pow(BC, 2)/4))
+            print("Midline of AB: ", TTab)
+            print("Midline of AC: ", TTac)
+            print("Midline of BC: ", TTbc)
 
-        # Câu 7 
-            # Trọng tâm 
-        xg = (a1 + b1 + c1)/3
-        yg = (a2 + b2 + c2)/3
-        print("Trọng tâm G của tam giác có tọa độ: G(" + str(xg) + "," + str(yg))
-            # Trực tâm 
+    # Trọng tâm 
+    def question_seven(self):
+        if((self.b1 - self.a1)/(self.c1 - self.a1) != (self.b2 - self.a2)/(self.c2 - self.a2)):
+            xg = (self.a1 + self.b1 + self.c1)/3
+            yg = (self.a2 + self.b2 + self.c2)/3
+            print("The centroid G of the triangle has coordinates: G(" + str(xg) + "," + str(yg))
 
-print(cau1())
-print(_())
+assignment(a1, a2, b1, b2, c1, c2).question_four()
+
+
