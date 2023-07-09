@@ -1,14 +1,11 @@
 # 1
 import math
 print("Tọa độ của A: ")
-a1 = int(input())
-a2 = int(input())
+a1, a2 = map(int,input().split())
 print("Tọa độ của B: ")
-b1 = int(input())
-b2 = int(input())
+b1, b2 = map(int,input().split())
 print("Tọa độ của C: ")
-c1 = int(input())
-c2 = int(input())
+c1, c2 = map(int,input().split())
 
 class assignment:
     def __init__(self, a1, a2, b1, b2, c1, c2):
@@ -115,6 +112,19 @@ class assignment:
             yg = (self.a2 + self.b2 + self.c2)/3
             print("The centroid G of the triangle has coordinates: G(" + str(xg) + "," + str(yg))
 
-assignment(a1, a2, b1, b2, c1, c2).question_four()
+    # Trực tâm
+    def question_eight(self):
+        D = (self.c1 - self.b1) * (self.c2 - self.a2) - (self.c1 - self.a1) * (self.c2 - self.b2)
+        Dx = (self.a1 * (self.c1 - self.b1) + self.a2 * (self.c2 - self.b2)) * (self.c2 - self.a2) - (self.b1 * (self.c1 - self.a1) + self.b2 * (self.c2 - self.a2)) * (self.c2 - self.b2)
+        Dy = (self.c1 - self.b1) * (self.b1 * (self.c1 - self.a1) + self.b2 * (self.c2 - self.a2)) - (self.c1 - self.a1) * (self.a1 * (self.c1 - self.b1) + self.a2 * (self.c2 - self.b2))
+        if (D != 0):
+            x = round(Dx/D, 2)
+            y = round(Dy/D, 2)
+            print("Orthocenter of a triangle with coordinates H(" + str(int(x)) + "," + str(int(y)) + ")")
+        else:
+            print("Not available")
+
+
+assignment(a1, a2, b1, b2, c1, c2).question_eight()
 
 
