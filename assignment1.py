@@ -1,10 +1,10 @@
 # 1
 import math
-print("Tọa độ của A: ")
+print("Coordinates of A: ")
 a1, a2 = map(int,input().split())
-print("Tọa độ của B: ")
+print("Coordinates of B: ")
 b1, b2 = map(int,input().split())
-print("Tọa độ của C: ")
+print("Coordinates of C: ")
 c1, c2 = map(int,input().split())
 
 class assignment:
