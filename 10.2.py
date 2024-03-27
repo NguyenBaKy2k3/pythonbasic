@@ -15,7 +15,7 @@ class employee:
             return salary_sum
         
     def out(self):
-        print("Salary of employee {} received in the month {} là: ".format(self.name, self.mounth) + str(self.calculate_salary()) + " VND")
+        print("Salary of employee {} received in the month {}: ".format(self.name, self.mounth) + str(self.calculate_salary()) + " VND")
 
 class managers(employee):
     def __init__(self, name, mounth, bs_salary, nb_work_day, coefficients_salary, efficiency_coefficient):
@@ -29,7 +29,7 @@ class managers(employee):
             return (self.calculate_salary() + ((self.bs_salary * self.nb_work_day * self.coefficients_salary - 1000000) * (self.efficiency_coefficient - 1) * 0.85))
     
     def out(self):
-        print("Salary of employee {} received in the month {} là: ".format(self.name, self.mounth) + str(self.calculate_salary_bonus()) + " VND")
+        print("Salary of employee {} received in the month {}: ".format(self.name, self.mounth) + str(self.calculate_salary_bonus()) + " VND")
 
 name = str(input("Manager name: ")).strip()
 inf = list(map(float, input("Information: ").split()))

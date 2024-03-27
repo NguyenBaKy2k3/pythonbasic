@@ -1,4 +1,4 @@
-# Set
+
 """
 # 8.1
 n = map(float, input().split())
@@ -15,16 +15,17 @@ for i in n:
     if i not in a:
         a.add(i)
 print(len(a))
-
+"""
 # 8.3
-n = map(int, input().split())
+"""n = map(int, input().split())
 a = set(n)
 x = map(int, input("Số cần xóa: ").split())
 for i in x:
     if i in a:
         a.remove(i)
-print(sum(a))
-"""
+print(sum(a))"""
+
+import numpy as np
 
 
 
